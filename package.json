@@ -1,21 +1,27 @@
 {
     "engines": {
-      "node": ">=20.6.0"
+        "node": ">=20.6.0"
     },
     "name": "game-hub",
     "version": "1.0.0",
     "scripts": {
-      "start-client": "cd game-hub.client && npm start",
-      "start-server": "cd game-hub.server && npm start"
+        "start": "concurrently \"npm run start-server\" \"npm run start-client\"",
+        "start-client": "cd game-hub.client && npm start",
+        "start-server": "cd game-hub.server && npm start",
+        "restore-all": "npm run restore-client && npm run restore-server",
+        "restore-client": "cd game-hub.client && npm install",
+        "restore-server": "cd game-hub.server && npm install"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "description": "",
     "devDependencies": {
-      "@types/node": "^22.10.5",
-      "ts-node": "^10.9.2",
-      "typescript": "^5.7.3"
+        "@types/node": "^22.10.5",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.7.3"
+    },
+    "dependencies": {
+        "concurrently": "^9.1.2"
     }
-  }
-  
+}
